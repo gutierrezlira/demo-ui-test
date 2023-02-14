@@ -18,4 +18,22 @@ public class AmazonTest {
         Assert.assertEquals(AmazonPage.footer_Text, navFooterElement.getText());
         driver.quit();
     }
+
+    @Test
+    public void testOpenAmazonCart(){
+        ChromeDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get(AmazonPage.URL_AMAZON);
+
+        WebElement cart = driver.findElement(By.xpath(AmazonPage.AMAZON_CART));
+        cart.click();
+
+        WebElement emptyCart = driver.findElement(By.xpath(AmazonPage.CART_IS_EMPTY));
+        Assert.assertEquals(AmazonPage.CartEmptyText, emptyCart.getText());
+
+        driver.quit();
+    }
+
+
+
 }
