@@ -55,6 +55,29 @@ public class OnlinerTest {
         driver.quit();
     }
 
+    @Test
+
+    public void testOnlinerLoginFormWithEmptyPassword() throws InterruptedException {
+        ChromeDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get(OnlinerPage.URL_ONLINER);
+
+        WebElement enterBtnOnliner = driver.findElement(By.xpath(OnlinerPage.ONLINER_ENTER_BTN));
+        enterBtnOnliner.click();
+        //Thread.sleep(3000);
+
+        WebElement sendKeyLogin = driver.findElement(By.xpath(OnlinerPage.EMAIL_ENTRANCE_WINDOW));
+        sendKeyLogin.sendKeys("test@gmail.com");
+
+        WebElement enterBtnOnlForm = driver.findElement(By.xpath(OnlinerPage.ONLINER_FORM_ENTER_BTN));
+        enterBtnOnlForm.click();
+        Thread.sleep(3000);
+
+        WebElement onlinerPassword = driver.findElement(By.xpath(OnlinerPage.ONLINER_PASSWORD));
+        Assert.assertEquals(OnlinerPage.PasswordTextErr, onlinerPassword.getText());
+
+        driver.quit();
+    }
 
 
 

@@ -8,5 +8,6 @@ public class OnlinerPage {
     public static final String ONLINER_PASSWORD = "//div[contains(text(),'Укажите пароль')]";
     public static  String loginErrText = "Укажите ник или e-mail";
     public static  String PasswordTextErr = "Укажите пароль";
-
+    public static final String EMAIL_ENTRANCE_WINDOW = "//*[@placeholder='Ник или e-mail']";
+    public static final String PASSWORD_ENTRANCE_WINDOW = "//*[@type='password']";
 }
