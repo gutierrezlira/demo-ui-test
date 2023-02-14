@@ -47,8 +47,8 @@ public class OnlinerTest {
 
         Thread.sleep(3000);
 
-        WebElement onlinerLogin = driver.findElement(By.xpath(OnlinerPage.ONLINER_LOGIN));
-        WebElement onlinerPassword = driver.findElement(By.xpath(OnlinerPage.ONLINER_PASSWORD));
+        WebElement onlinerLogin = driver.findElement(By.xpath(OnlinerPage.ONLINER_LOGIN_ERR));
+        WebElement onlinerPassword = driver.findElement(By.xpath(OnlinerPage.ONLINER_PASSWORD_ERR));
 
         Assert.assertEquals(OnlinerPage.loginErrText, onlinerLogin.getText());
         Assert.assertEquals(OnlinerPage.PasswordTextErr, onlinerPassword.getText());
@@ -73,7 +73,7 @@ public class OnlinerTest {
         enterBtnOnlForm.click();
         Thread.sleep(3000);
 
-        WebElement onlinerPassword = driver.findElement(By.xpath(OnlinerPage.ONLINER_PASSWORD));
+        WebElement onlinerPassword = driver.findElement(By.xpath(OnlinerPage.ONLINER_PASSWORD_ERR));
         Assert.assertEquals(OnlinerPage.PasswordTextErr, onlinerPassword.getText());
 
         driver.quit();
