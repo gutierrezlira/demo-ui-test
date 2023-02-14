@@ -8,18 +8,28 @@ public class OnlinerTest {
 
     @Test
 
-    public void testOpenPage(){
+    public void testOpenOnliner(){
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-
         driver.get(OnlinerPage.URL_Online);
 
-        By copyrightBy = By.xpath(OnlinerPage.copyrightXpath);
-        WebElement copyrightElement = driver.findElement(copyrightBy);
+        WebElement copyrightElement = driver.findElement(By.xpath(OnlinerPage.copyrightXpath));
 
         Assert.assertEquals(OnlinerPage.copyrightText, copyrightElement.getText());
         driver.quit();
     }
 
+    @Test
+
+    public void testOpenOnlinerLoginForm(){
+        ChromeDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get(OnlinerPage.URL_Online);
+
+        WebElement enterBtnOnliner = driver.findElement(By.xpath(OnlinerPage.onlinerEnterBtn));
+
+        Assert.assertEquals("Вход", enterBtnOnliner.getText());
+        driver.quit();
+    }
 
 }
