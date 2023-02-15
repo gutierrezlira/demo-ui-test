@@ -6,13 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class AmazonTest {
     ChromeDriver driver = new ChromeDriver();
     @Before
-    public void settingOpen() throws InterruptedException {
+    public void settingOpen() {
         driver.manage().window().maximize();
         driver.get(AmazonPage.URL_AMAZON);
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
     @Test
     public void testOpenAmazon(){
