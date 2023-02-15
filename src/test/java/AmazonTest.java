@@ -62,5 +62,4 @@ public class AmazonTest {
     public void setExit(){
         driver.quit();
     }
-
 }
