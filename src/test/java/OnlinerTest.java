@@ -36,8 +36,6 @@ public class OnlinerTest {
         WebElement enterBtnOnlForm = driver.findElement(By.xpath(OnlinerPage.ONLINER_FORM_ENTER_BTN));
         enterBtnOnlForm.click();
 
-        Thread.sleep(3000);
-
         WebElement onlinerLogin = driver.findElement(By.xpath(OnlinerPage.ONLINER_LOGIN_ERR));
         WebElement onlinerPassword = driver.findElement(By.xpath(OnlinerPage.ONLINER_PASSWORD_ERR));
 
@@ -55,10 +53,21 @@ public class OnlinerTest {
 
         WebElement enterBtnOnlForm = driver.findElement(By.xpath(OnlinerPage.ONLINER_FORM_ENTER_BTN));
         enterBtnOnlForm.click();
-        Thread.sleep(3000);
 
         WebElement onlinerPassword = driver.findElement(By.xpath(OnlinerPage.ONLINER_PASSWORD_ERR));
         Assert.assertEquals(OnlinerPage.PasswordTextErr, onlinerPassword.getText());
+    }
+
+    @Test
+    public void  testOnlinerLoginFormWithEmptyLogin(){
+        WebElement enterBtnOnliner = driver.findElement(By.xpath(OnlinerPage.ONLINER_ENTER_BTN));
+        enterBtnOnliner.click();
+        WebElement passwordSendKey = driver.findElement(By.xpath(OnlinerPage.PASSWORD_ENTRANCE_WINDOW));
+        passwordSendKey.sendKeys("00000");
+        WebElement enterBtnOnlForm = driver.findElement(By.xpath(OnlinerPage.ONLINER_FORM_ENTER_BTN));
+        enterBtnOnlForm.click();
+        WebElement onlinerLogin = driver.findElement(By.xpath(OnlinerPage.ONLINER_LOGIN_ERR));
+        Assert.assertEquals(OnlinerPage.loginErrText, onlinerLogin.getText());
     }
 @After
     public void setExit(){
